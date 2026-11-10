@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>As-Suffah Central Web App</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Hind Siliguri & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Hind Siliguri', 'Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            900: '#0f172a',
+                            950: '#090d16',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Custom Mobile Scrollbars */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        /* Glassmorphic Effects */
+        .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        /* Dynamic Glow Active State */
+        .active-tab {
+            background: linear-gradient(135deg, #4f46e5 0%, #3b82f6 100%);
+            box-shadow: 0 4px 20px -2px rgba(79, 70, 229, 0.5);
+            color: #ffffff !important;
+        }
+    </style>
+</head>
+<body class="bg-brand-950 text-slate-100 min-h-screen flex justify-center items-center selection:bg-indigo-500 selection:text-white overflow-x-hidden p-0 sm:p-4">
+
+    <!-- Mobile App Container Wrapper -->
+    <div class="w-full max-w-md bg-slate-950 min-h-screen sm:min-h-[844px] sm:max-h-[90vh] sm:rounded-[40px] sm:border-8 sm:border-slate-800 sm:shadow-2xl flex flex-col relative overflow-hidden pb-16">
+
+        <!-- Top Header Bar (Centered Logo & Bold Title) -->
+        <header class="glass-nav border-b border-slate-800/80 sticky top-0 z-40 px-4 py-4">
+            <div class="flex flex-col items-center justify-center space-y-2">
+                <div class="flex items-center space-x-3 cursor-pointer group" onclick="switchView('home')">
+                    <div class="relative w-14 h-14 rounded-full p-0.5 bg-gradient-to-tr from-amber-400 via-indigo-500 to-emerald-400 shadow-xl shadow-indigo-500/20 group-hover:scale-105 transition-transform">
+                        <img src="https://lh3.googleusercontent.com/d/1PXMzZMIOZbElnjIuOK2ew-FNMhuScYGx" 
+                             alt="As-Suffah Logo" 
+                             class="w-full h-full object-cover rounded-full bg-slate-900"
+                             onerror="this.onerror=null; this.src='https://placehold.co/100x100/1e293b/6366f1?text=AS';">
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1 class="text-lg font-black leading-tight text-white tracking-wider">AS-SUFFAH WELFARE ASSOCIATION</h1>
+                    <p class="text-[11px] font-bold text-indigo-400 tracking-widest uppercase mt-0.5">Central Hub</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Container -->
+        <main class="flex-grow px-4 py-6 flex flex-col justify-start overflow-y-auto no-scrollbar space-y-6">
+
+            <!-- ================= HOME / DASHBOARD VIEW ================= -->
+            <section id="view-home" class="space-y-6 w-full animate-fade-in my-auto">
+                
+                <!-- Hero Section -->
+                <div class="text-center relative pt-2">
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-56 h-56 bg-indigo-600/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                    
+                    <h2 class="text-2xl font-black text-white tracking-tight leading-tight">
+                        ডিজিটাল মেম্বারশিপ সার্ভিস <br/>
+                        <span class="bg-gradient-to-r from-blue-400 via-indigo-300 to-emerald-400 bg-clip-text text-transparent">পোর্টালে স্বাগতম</span>
+                    </h2>
+                </div>
+
+                <!-- Services Grid (Large Clean Cards without button text) -->
+                <div class="grid grid-cols-1 gap-5">
+                    
+                    <!-- Service 1: Member Search -->
+                    <div onclick="switchView('app1')" class="glass-card rounded-3xl p-6 active:scale-95 transition-all cursor-pointer border border-slate-800 hover:border-blue-500/50 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all"></div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-400 shadow-lg shadow-blue-500/10">
+                                <i class="fa-solid fa-magnifying-glass text-2xl"></i>
+                            </div>
+                            <button onclick="openExternal('https://script.google.com/macros/s/AKfycbyQdAwwXVpCNemd4I4wPbQhiApb3QZ635ViR6cwbBDmLZMzjqCP2dUOuLGlV3tYc4HTig/exec', event)" 
+                                    class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700/60 shadow-md">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </button>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">Member Search</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                            মেম্বারদের তথ্য ও ড্রাইভ ফাইল সহজে চেক করার প্ল্যাটফর্ম।
+                        </p>
+                    </div>
+
+                    <!-- Service 2: New Member Entry -->
+                    <div onclick="switchView('app2')" class="glass-card rounded-3xl p-6 active:scale-95 transition-all cursor-pointer border border-slate-800 hover:border-emerald-500/50 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl group-hover:bg-emerald-500/20 transition-all"></div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-lg shadow-emerald-500/10">
+                                <i class="fa-solid fa-user-plus text-2xl"></i>
+                            </div>
+                            <button onclick="openExternal('https://script.google.com/macros/s/AKfycbx9BWnj4XmUi3xJcNx3InSgXgZRP9nWQCJtlAQG0RJO6-HGo5HOXNLKitXTzqsjaw929w/exec', event)" 
+                                    class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700/60 shadow-md">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </button>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-white group-hover:text-emerald-400 transition-colors">New Member Entry</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                            নতুন মেম্বারের বিবরণ সাবমিট ও তথ্য নিবন্ধনের ব্যবস্থা।
+                        </p>
+                    </div>
+
+                    <!-- Service 3: Google Form -->
+                    <div onclick="switchView('app3')" class="glass-card rounded-3xl p-6 active:scale-95 transition-all cursor-pointer border border-slate-800 hover:border-purple-500/50 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/10 rounded-full blur-2xl group-hover:bg-purple-500/20 transition-all"></div>
+                        
+                        <div class="flex items-center justify-between mb-4">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shadow-lg shadow-purple-500/10">
+                                <i class="fa-solid fa-file-signature text-2xl"></i>
+                            </div>
+                            <button onclick="openExternal('https://docs.google.com/forms/d/e/1FAIpQLScimaLEp4pSTNxQ-X7nI8CogFdbDLLB1a9qjcvngvAl4lJb8g/viewform?pli=1', event)" 
+                                    class="w-10 h-10 rounded-xl bg-slate-800/80 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700/60 shadow-md">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-sm"></i>
+                            </button>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">As Suffah Form</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                            অফিসিয়াল গুগল ফর্মের মাধ্যমে আবেদন ফরম জমা দিন।
+                        </p>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================= APP 1 VIEW ================= -->
+            <section id="view-app1" class="hidden flex-grow flex flex-col h-full space-y-3">
+                <div class="glass-card p-3 rounded-2xl flex items-center justify-between border border-slate-800">
+                    <button onclick="switchView('home')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-200 border border-slate-700">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <span class="text-sm font-bold text-white">Member Search</span>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="reloadIframe('iframe-app1')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700">
+                            <i class="fa-solid fa-rotate-right text-xs"></i>
+                        </button>
+                        <button onclick="openExternal('https://script.google.com/macros/s/AKfycbyQdAwwXVpCNemd4I4wPbQhiApb3QZ635ViR6cwbBDmLZMzjqCP2dUOuLGlV3tYc4HTig/exec', event)" class="w-9 h-9 rounded-xl bg-blue-600 hover:bg-blue-500 active:scale-90 flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden relative min-h-[520px]">
+                    <iframe id="iframe-app1" src="https://script.google.com/macros/s/AKfycbyQdAwwXVpCNemd4I4wPbQhiApb3QZ635ViR6cwbBDmLZMzjqCP2dUOuLGlV3tYc4HTig/exec" class="w-full h-full min-h-[520px] border-none"></iframe>
+                </div>
+            </section>
+
+            <!-- ================= APP 2 VIEW ================= -->
+            <section id="view-app2" class="hidden flex-grow flex flex-col h-full space-y-3">
+                <div class="glass-card p-3 rounded-2xl flex items-center justify-between border border-slate-800">
+                    <button onclick="switchView('home')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-200 border border-slate-700">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <span class="text-sm font-bold text-white">New Member Entry</span>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="reloadIframe('iframe-app2')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700">
+                            <i class="fa-solid fa-rotate-right text-xs"></i>
+                        </button>
+                        <button onclick="openExternal('https://script.google.com/macros/s/AKfycbx9BWnj4XmUi3xJcNx3InSgXgZRP9nWQCJtlAQG0RJO6-HGo5HOXNLKitXTzqsjaw929w/exec', event)" class="w-9 h-9 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:scale-90 flex items-center justify-center text-white shadow-lg shadow-emerald-500/20">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden relative min-h-[520px]">
+                    <iframe id="iframe-app2" src="https://script.google.com/macros/s/AKfycbx9BWnj4XmUi3xJcNx3InSgXgZRP9nWQCJtlAQG0RJO6-HGo5HOXNLKitXTzqsjaw929w/exec" class="w-full h-full min-h-[520px] border-none"></iframe>
+                </div>
+            </section>
+
+            <!-- ================= APP 3 VIEW ================= -->
+            <section id="view-app3" class="hidden flex-grow flex flex-col h-full space-y-3">
+                <div class="glass-card p-3 rounded-2xl flex items-center justify-between border border-slate-800">
+                    <button onclick="switchView('home')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-200 border border-slate-700">
+                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                    </button>
+                    <span class="text-sm font-bold text-white">As Suffah Form</span>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="reloadIframe('iframe-app3')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 active:scale-90 flex items-center justify-center text-slate-300 border border-slate-700">
+                            <i class="fa-solid fa-rotate-right text-xs"></i>
+                        </button>
+                        <button onclick="openExternal('https://docs.google.com/forms/d/e/1FAIpQLScimaLEp4pSTNxQ-X7nI8CogFdbDLLB1a9qjcvngvAl4lJb8g/viewform?pli=1', event)" class="w-9 h-9 rounded-xl bg-purple-600 hover:bg-purple-500 active:scale-90 flex items-center justify-center text-white shadow-lg shadow-purple-500/20">
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="flex-grow bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden relative min-h-[520px]">
+                    <iframe id="iframe-app3" src="https://docs.google.com/forms/d/e/1FAIpQLScimaLEp4pSTNxQ-X7nI8CogFdbDLLB1a9qjcvngvAl4lJb8g/viewform?embedded=true" class="w-full h-full min-h-[520px] border-none"></iframe>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Bottom Footer -->
+        <footer class="bg-slate-950 border-t border-slate-800/80 text-center py-2.5 px-3">
+            <p class="text-xs font-semibold text-slate-400">
+                Created by <span class="text-indigo-400 font-bold">M Maksud Rs Ksa</span>
+            </p>
+        </footer>
+
+        <!-- Bottom Navigation Bar (Icons Only - Ultra Modern Style) -->
+        <nav class="absolute bottom-0 left-0 right-0 glass-nav border-t border-slate-800 z-50 px-4 py-2 flex justify-around items-center">
+            <button onclick="switchView('home')" id="mnav-home" class="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 active:scale-90 transition">
+                <i class="fa-solid fa-house text-lg"></i>
+            </button>
+            <button onclick="switchView('app1')" id="mnav-app1" class="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 active:scale-90 transition">
+                <i class="fa-solid fa-magnifying-glass text-lg"></i>
+            </button>
+            <button onclick="switchView('app2')" id="mnav-app2" class="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 active:scale-90 transition">
+                <i class="fa-solid fa-user-plus text-lg"></i>
+            </button>
+            <button onclick="switchView('app3')" id="mnav-app3" class="w-11 h-11 rounded-2xl flex items-center justify-center text-slate-400 active:scale-90 transition">
+                <i class="fa-solid fa-file-pen text-lg"></i>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        function switchView(viewName) {
+            const views = ['home', 'app1', 'app2', 'app3'];
+            
+            views.forEach(v => {
+                const el = document.getElementById(`view-${v}`);
+                if (el) el.classList.add('hidden');
+
+                const mnav = document.getElementById(`mnav-${v}`);
+                if (mnav) {
+                    mnav.classList.remove('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-500/30');
+                    mnav.classList.add('text-slate-400');
+                }
+            });
+
+            const activeView = document.getElementById(`view-${viewName}`);
+            if (activeView) activeView.classList.remove('hidden');
+
+            const activeMnav = document.getElementById(`mnav-${viewName}`);
+            if (activeMnav) {
+                activeMnav.classList.add('bg-indigo-600', 'text-white', 'shadow-lg', 'shadow-indigo-500/30');
+                activeMnav.classList.remove('text-slate-400');
+            }
+
+            const mainContent = document.querySelector('main');
+            if (mainContent) mainContent.scrollTop = 0;
+        }
+
+        function reloadIframe(iframeId) {
+            const iframe = document.getElementById(iframeId);
+            if(iframe) {
+                iframe.src = iframe.src;
+            }
+        }
+
+        function openExternal(url, event) {
+            if(event) event.stopPropagation();
+            window.open(url, '_blank', 'noopener,noreferrer');
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            switchView('home');
+        });
+    </script>
+</body>
+</html>
